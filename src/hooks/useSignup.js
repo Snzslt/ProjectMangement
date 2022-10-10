@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { projectAuth } from '../firebase/config'
+import { projectAuth, projectStorage } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useSignup = () => {
@@ -29,7 +29,7 @@ export const useSignup = () => {
       await res.user.updateProfile({ displayName, photoURL: imgUrl })
 
       // dispatch login action
-      dispatch({ type: 'LOGIN', payload: res.user })
+     dispatch({ type: 'LOGIN', payload: res.user })
 
       if (!isCancelled) {
         setIsPending(false)
